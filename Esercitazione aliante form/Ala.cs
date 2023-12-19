@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Esercitazione_aliante_form
 {
-	public class Ala
+	public class Ala:Aliante
 	{
+		
 	}
 }

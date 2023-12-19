@@ -8,10 +8,27 @@ namespace Esercitazione_aliante_form
 {
 	public class Aliante
 	{
-		public Ala ala { get; set; }
-		public Fusoliera fusoliera { get; set; }
-		public Coda coda { get; set; }
+		public Ala Ala { get; set; }
+		public Fusoliera Fusoliera { get; set; }
+		public Coda Coda { get; set; }
 		
+		public Aliante()
+		{
+			Ala = null;
+			Fusoliera = null;
+			Coda = null;
+		}
+		public Aliante(Ala ala, Fusoliera fus, Coda coda)
+		{
+		  Ala = ala;
+			Fusoliera = fus;
+			Coda = coda;
+		}
+
+		public virtual string Descrizione()
+		{
+			return $"Ala: {Ala} + Fusoliera: {Fusoliera} + Coda: {Coda}";
+		}
 	}
 
 }

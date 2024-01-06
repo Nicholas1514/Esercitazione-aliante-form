@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Aliante.cs" />
     <Compile Include="Ala.cs" />
+    <Compile Include="Interfaccia.cs" />
     <Compile Include="Ruota.cs" />
     <Compile Include="Coda.cs" />
     <Compile Include="Fusoliera.cs" />

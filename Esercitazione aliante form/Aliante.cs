@@ -6,28 +6,88 @@ using System.Threading.Tasks;
 
 namespace Esercitazione_aliante_form
 {
-	public class Aliante
+	public class Aliante : IComposite
 	{
-		public Ala Ala { get; set; }
-		public Fusoliera Fusoliera { get; set; }
-		public Coda Coda { get; set; }
-		
-		public Aliante()
+		private List<IComposite> _componenti;
+
+		public List<IComposite> Composites
 		{
-			Ala = null;
-			Fusoliera = null;
-			Coda = null;
-		}
-		public Aliante(Ala ala, Fusoliera fus, Coda coda)
-		{
-		  Ala = ala;
-			Fusoliera = fus;
-			Coda = coda;
+			get { return _componenti; }
+			set { _componenti = value; }
 		}
 
-		public virtual string Descrizione()
+		public Aliante()
 		{
-			return $"Ala: {Ala} + Fusoliera: {Fusoliera} + Coda: {Coda}";
+			Composites = new List<IComposite>();
+		}
+
+		public Aliante(Aliante vAliante)
+		{
+			Composites = vAliante.Composites;
+		}
+
+		public Aliante(List<IComposite> componenti)
+		{
+			Composites = componenti;
+		}
+
+		public void Aggiunta(IComposite componenti)
+		{
+			Composites.Add(componenti);
+		}
+
+		public void Rimuovi(int indice)
+		{
+			Composites.RemoveAt(indice);
+		}
+
+		public IComposite GetChild(int indice)
+		{
+			return Composites[indice];
+		}
+
+		public override string ToString()
+		{
+			string s = "";
+			foreach(var componenti in Composites)
+			{
+				s += componenti.ToString();
+			}
+			return s;
+		}
+
+		public double Prezzo()
+		{
+			double totale = 0;
+			foreach(var componenti in Composites)
+			{
+				totale += componenti.Prezzo();
+			}
+
+			return totale;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if(!(obj is Aliante) || obj == null)
+			{
+				return false;
+			}
+			Aliante altro = (Aliante)obj;
+			if(Composites.Count != altro.Composites.Count)
+			{
+				return false;
+			}
+
+			for(int i = 0; i < Composites.Count; i++)
+			{
+				if (!Composites[i].Equals(altro.Composites[i]))
+				{
+					return false;
+				}
+			}
+
+			return true;
 		}
 	}
 

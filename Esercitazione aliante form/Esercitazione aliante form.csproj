@@ -49,6 +49,7 @@
     <Compile Include="Aliante.cs" />
     <Compile Include="Ala.cs" />
     <Compile Include="Cerchione.cs" />
+    <Compile Include="Gomma.cs" />
     <Compile Include="Interfaccia.cs" />
     <Compile Include="Ruota.cs" />
     <Compile Include="Coda.cs" />

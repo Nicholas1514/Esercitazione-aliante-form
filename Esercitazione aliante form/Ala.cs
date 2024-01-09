@@ -63,7 +63,7 @@ namespace Esercitazione_aliante_form
 
         public override string ToString()
         {
-			return $"Lunghezza: {Lu} + Apertura: {Ap}";
+					return $"Lunghezza: {Lu} + Apertura: {Ap}";
         }
     }
 }
